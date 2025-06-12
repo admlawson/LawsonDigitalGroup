@@ -3,7 +3,7 @@
 import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, X, ArrowRight, TrendingUp, Clock, Users, Code, Zap, Settings, Smartphone, Monitor, Bot } from "lucide-react"
+import { CheckCircle2, X, ArrowRight, TrendingUp, Clock, Users, Code, Zap, Settings, Smartphone, Monitor, Bot, Calendar } from "lucide-react"
 import Image from "next/image"
 
 export default function CustomDevelopment() {
