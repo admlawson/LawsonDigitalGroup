@@ -1,391 +1,456 @@
 "use client"
 
-import { useState } from 'react'
 import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, X } from 'lucide-react'
-import LeadCaptureForm from "@/components/LeadCaptureForm"
-
-const highlightedText = "text-[#CBF36E] text-shadow-highlight"
+import { CheckCircle2, X, ArrowRight, TrendingUp, Clock, Users, Code, Zap, Settings, Smartphone, Monitor, Bot, Calendar } from "lucide-react"
+import Image from "next/image"
 
 export default function CustomDevelopment() {
-  const [showLeadForm, setShowLeadForm] = useState(false)
-
-  const openLeadForm = () => setShowLeadForm(true)
-  const closeLeadForm = () => setShowLeadForm(false)
-
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              AI-Powered Custom Web & App Development for <span className={highlightedText}>SMBs</span>
+      <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 gradient-bg"></div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-primary-dark mb-6 animate-fade-up">
+              <Code className="w-4 h-4" />
+              Save 20+ hours a week with custom automation
+            </div>
+            
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
+              🧰 Custom Apps & Tools
+              <span className="text-gradient block mt-2">for Small Business</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8">Streamline Your Business with AI-Powered Custom Software</p>
-            <p className="text-lg mb-8">
-              🔥 One company saved 20+ hours per week and increased revenue by 200% with an AI-powered custom CRM.
-            </p>
-            <Button 
-              className="bg-[#CBF36E] hover:bg-[#b9e050] text-black text-lg px-8 py-6 rounded-full"
-              onClick={openLeadForm}
-            >
-              Book a Free AI App Consultation
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Introduction */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-            The Future of Business is <span className={highlightedText}>Automated</span>—Are You Ready?
-          </h2>
-          <p className="text-lg mb-6">Every fast-growing business reaches a breaking point.</p>
-          <ul className="list-none space-y-2 mb-6">
-            <li className="flex items-center">
-              <CheckCircle2 className={highlightedText} mr-2 /> Your operations become too complex.
-            </li>
-            <li className="flex items-center">
-              <CheckCircle2 className={highlightedText} mr-2 /> Your team spends too much time on repetitive tasks.
-            </li>
-            <li className="flex items-center">
-              <CheckCircle2 className={highlightedText} mr-2 /> Your competitors are scaling faster with automation.
-            </li>
-          </ul>
-          <p className="text-lg mb-6">💡 The solution? AI-powered custom software built for YOUR business.</p>
-          <div className="text-center">
-            <Button className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg" onClick={openLeadForm}>
-              Want to streamline your business with AI? Let's build your custom web app
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Why SMBs Need AI-Powered Custom Web & App Development */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Why SMBs Need <span className={highlightedText}>AI-Powered Custom Web & App Development</span>
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">Your current software isn't built for your needs.</h3>
-              <div className="mb-4">
-                <p className="flex items-center">
-                  <X className="text-red-500 mr-2" /> STOP: Using outdated, off-the-shelf software that slows you down.
-                </p>
+            
+            <div className="max-w-4xl mx-auto mb-8">
+              <p className="text-lg sm:text-xl text-neutral-600 mb-4 leading-relaxed">
+                <strong>Ditch the spreadsheets. Replace the guesswork.</strong>
+              </p>
+              <p className="text-base sm:text-lg text-neutral-600">
+                We build simple, powerful tools that match the way your business runs—not the other way around.
+              </p>
+            </div>
+            
+            <div className="grid sm:grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-soft border border-primary/10">
+                <CheckCircle2 className="w-5 h-5 text-primary" />
+                <span className="font-medium text-neutral-800">Save 20+ hours a week</span>
               </div>
-              <div>
-                <p className="flex items-center">
-                  <CheckCircle2 className="text-green-500 mr-2" /> START: Using a custom-built AI-powered solution that
-                  fits your business perfectly.
-                </p>
+              <div className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-soft border border-primary/10">
+                <CheckCircle2 className="w-5 h-5 text-primary" />
+                <span className="font-medium text-neutral-800">Automate repetitive work</span>
+              </div>
+              <div className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-soft border border-primary/10">
+                <CheckCircle2 className="w-5 h-5 text-primary" />
+                <span className="font-medium text-neutral-800">Stop paying for unused tools</span>
               </div>
             </div>
-
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">You're wasting time on manual processes.</h3>
-              <div className="mb-4">
-                <p className="flex items-center">
-                  <X className="text-red-500 mr-2" /> STOP: Doing repetitive tasks that AI can automate instantly.
-                </p>
-              </div>
-              <div>
-                <p className="flex items-center">
-                  <CheckCircle2 className="text-green-500 mr-2" /> START: Using AI to optimize workflows, reduce errors,
-                  and increase efficiency.
-                </p>
-              </div>
+            
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-medium hover:shadow-strong transition-all duration-300"
+                onClick={() => window.openLeadForm()}
+              >
+                📞 Book a Free Strategy Call
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
             </div>
 
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">You're scaling, but your systems aren't.</h3>
-              <div className="mb-4">
-                <p className="flex items-center">
-                  <X className="text-red-500 mr-2" /> STOP: Struggling with tools that don't integrate or scale.
-                </p>
+            {/* Trust Indicators */}
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-8 text-sm text-neutral-500 justify-center">
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-primary" />
+                <span>Projects start at $1,995</span>
               </div>
-              <div>
-                <p className="flex items-center">
-                  <CheckCircle2 className="text-green-500 mr-2" /> START: Using a scalable, AI-powered app that grows
-                  with your business.
-                </p>
+              <div className="flex items-center gap-2">
+                <Users className="w-4 h-4 text-accent" />
+                <span>Built for growing businesses</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-primary" />
+                <span>No obligation</span>
               </div>
             </div>
           </div>
-
-          <div className="text-center mt-12">
-            <Button className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg" onClick={openLeadForm}>
-              Need a custom app? Let's talk AI automation
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* AI-Powered Web & App Development Services */}
-      <section className="py-20 px-4">
+      {/* Why Businesses Call Us */}
+      <section className="py-16 sm:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            AI-Powered Web & App Development <span className={highlightedText}>Services</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-16">
+            Why Businesses Call Us When They're <span className="text-gradient">Growing Fast</span>
           </h2>
-
-          <p className="text-lg mb-8">💡 We don't just build software. We build AI-driven systems that scale.</p>
-
-          <table className="w-full mb-8">
-            <thead className="bg-[#CBF36E]">
-              <tr>
-                <th className="p-3 text-left">Service</th>
-                <th className="p-3 text-left">How It Helps Your Business</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="bg-white">
-                <td className="p-3 border">Custom AI-Powered Web Apps</td>
-                <td className="p-3 border">Automate processes, manage data, and increase efficiency</td>
-              </tr>
-              <tr className="bg-gray-100">
-                <td className="p-3 border">AI Chatbot & Automation Platforms</td>
-                <td className="p-3 border">Convert leads, engage customers, and streamline operations</td>
-              </tr>
-              <tr className="bg-white">
-                <td className="p-3 border">AI-Enhanced CRM & Sales Tools</td>
-                <td className="p-3 border">Manage leads, sales pipelines, and customer relationships efficiently</td>
-              </tr>
-              <tr className="bg-gray-100">
-                <td className="p-3 border">Custom Business Dashboards</td>
-                <td className="p-3 border">AI-powered analytics to help you make smarter decisions</td>
-              </tr>
-              <tr className="bg-white">
-                <td className="p-3 border">E-Commerce & Membership Platforms</td>
-                <td className="p-3 border">AI-driven personalization for higher conversion rates</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div className="text-center">
-            <Button className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg" onClick={openLeadForm}>
-              Let's Build Your AI Business Tool
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* How AI Is Changing Custom Software Development */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            How AI Is Changing Custom Software Development{" "}
-            <span className={highlightedText}>(And Why You Need It Now)</span>
-          </h2>
-
-          <p className="text-lg mb-8">🚀 Most business software is outdated the moment it launches. AI changes that.</p>
-
-          <p className="text-lg mb-8">Here's how AI-powered apps outperform traditional software:</p>
 
           <div className="space-y-8">
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">✅ AI Automates Repetitive Tasks</h3>
-              <p>
-                Instead of manually handling data entry, customer service, or reporting, AI automates it in real time.
-              </p>
-            </div>
-
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">✅ AI Learns & Improves Over Time</h3>
-              <p>Traditional software is static—AI-driven apps analyze data & optimize processes for better results.</p>
-            </div>
-
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">✅ AI Enhances Customer Engagement</h3>
-              <p>
-                From personalized product recommendations to automated customer support, AI increases retention & sales.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-gray-100 p-6 rounded-lg my-8">
-            <h3 className="text-2xl font-bold mb-4">📈 Case Study:</h3>
-            <p>
-              A healthcare provider reduced customer response times by 80% and improved patient engagement using an
-              AI-powered chatbot.
-            </p>
-          </div>
-
-          <div className="text-center">
-            <Button className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg" onClick={openLeadForm}>
-              Want to future-proof your business? Get a free consultation
-            </Button>
+            {[
+              {
+                problem: "You're doing too much manually",
+                solution: "We build apps that handle it for you",
+                description: "From customer intake to follow-ups and reporting—we automate what's slowing you down."
+              },
+              {
+                problem: "You're using tools that don't fit",
+                solution: "We build what you actually need",
+                description: "No more hacking together forms, CRMs, or 10 different tools that don't talk to each other."
+              },
+              {
+                problem: "You're scaling but your systems aren't",
+                solution: "We build tools that grow with you",
+                description: "Whether it's a client portal, a sales tracker, or something no one's built yet—we've got you."
+              }
+            ].map((item, i) => (
+              <div key={i} className="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-soft">
+                <div className="grid md:grid-cols-2 gap-6 items-start">
+                  <div className="flex items-start gap-3">
+                    <X className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="text-lg font-medium text-neutral-800 mb-2">❌ {item.problem}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="text-lg font-medium text-primary mb-2">✅ {item.solution}</p>
+                      <p className="text-neutral-600">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Case Studies */}
-      <section className="py-20 px-4">
+      {/* What We Can Build */}
+      <section className="py-16 sm:py-20 px-4 gradient-bg">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Case Studies: How SMBs Are Scaling with <span className={highlightedText}>AI-Powered Custom Apps</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8">
+            What We Can <span className="text-gradient">Build For You</span>
+          </h2>
+          
+          <div className="text-center mb-16">
+            <p className="text-lg text-neutral-600 italic">💬 "If your business runs on sticky notes or spreadsheets—we can build you something better."</p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full bg-white rounded-2xl shadow-soft overflow-hidden">
+              <thead>
+                <tr className="bg-primary/10 border-b-2 border-primary/20">
+                  <th className="text-left p-6 text-lg font-bold text-neutral-900">Solution</th>
+                  <th className="text-left p-6 text-lg font-bold text-neutral-900">What It Solves</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  {
+                    solution: "Quote or Booking Tools",
+                    benefit: "Let customers submit jobs or book online",
+                    icon: <Calendar className="w-5 h-5 text-primary" />
+                  },
+                  {
+                    solution: "Custom CRM & Dashboards", 
+                    benefit: "Track leads, projects, or orders—your way",
+                    icon: <Monitor className="w-5 h-5 text-primary" />
+                  },
+                  {
+                    solution: "Team Workflow Tools",
+                    benefit: "Assign jobs, follow status, reduce back-and-forth",
+                    icon: <Users className="w-5 h-5 text-primary" />
+                  },
+                  {
+                    solution: "Client Portals",
+                    benefit: "Let customers log in, view updates, message you",
+                    icon: <Smartphone className="w-5 h-5 text-primary" />
+                  },
+                  {
+                    solution: "AI Assistants",
+                    benefit: "Automate follow-ups, FAQs, and data entry",
+                    icon: <Bot className="w-5 h-5 text-primary" />
+                  }
+                ].map((row, i) => (
+                  <tr key={i} className={`border-b border-neutral-100 ${i % 2 === 0 ? 'bg-neutral-50' : 'bg-white'}`}>
+                    <td className="p-6">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-primary/10 rounded-lg">
+                          {row.icon}
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <CheckCircle2 className="w-5 h-5 text-primary" />
+                            <span className="font-medium text-neutral-900">{row.solution}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="p-6 text-neutral-700">{row.benefit}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Real-World Results */}
+      <section className="py-16 sm:py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-16">
+            Real-World <span className="text-gradient">Results</span>
           </h2>
 
           <div className="space-y-12">
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">🔹 Case Study #1: Custom AI CRM Saves 20+ Hours Per Week</h3>
-              <p className="mb-2">
-                <strong>📍 Industry:</strong> Real Estate
-              </p>
-              <p className="mb-2">
-                <strong>❌ Before AI:</strong> Manually tracking leads, slow response times, lost deals.
-              </p>
-              <p className="mb-4">
-                <strong>✅ After AI:</strong> Custom AI-powered CRM automates lead tracking & sends instant follow-ups.
-              </p>
-              <h4 className="text-xl font-bold mb-2">📈 Results:</h4>
-              <ul className="list-none space-y-2">
-                <li className="flex items-center">
-                  <CheckCircle2 className="text-green-500 mr-2" /> 20+ hours saved per week
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle2 className="text-green-500 mr-2" /> 200% more leads converted
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle2 className="text-green-500 mr-2" /> Higher engagement from automated responses
-                </li>
-              </ul>
+            {/* Case Study 1 */}
+            <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl sm:rounded-3xl p-8 sm:p-12 shadow-soft">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
+                <h3 className="text-2xl font-bold text-neutral-900">🔹 Real Estate CRM That Converts</h3>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="bg-white rounded-xl p-6 shadow-soft">
+                  <h4 className="font-bold text-red-600 mb-4 text-lg">Before:</h4>
+                  <p className="text-neutral-700">Lost leads, no follow-up, time wasted tracking</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-soft">
+                  <h4 className="font-bold text-primary mb-4 text-lg">After:</h4>
+                  <p className="text-neutral-700">Custom CRM with instant response workflows</p>
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="flex items-center gap-2 bg-white/80 p-3 rounded-xl">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium text-neutral-800">20+ hours saved weekly</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/80 p-3 rounded-xl">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium text-neutral-800">200% more lead conversions</span>
+                </div>
+              </div>
             </div>
 
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">
-                🔹 Case Study #2: E-Commerce Brand Boosts Conversions with AI-Powered Personalization
-              </h3>
-              <p className="mb-2">
-                <strong>📍 Industry:</strong> Online Retail
-              </p>
-              <p className="mb-2">
-                <strong>❌ Before AI:</strong> Generic product recommendations, high cart abandonment.
-              </p>
-              <p className="mb-4">
-                <strong>✅ After AI:</strong> Custom AI-powered recommendation engine doubled conversion rates.
-              </p>
-              <h4 className="text-xl font-bold mb-2">📈 Results:</h4>
-              <ul className="list-none space-y-2">
-                <li className="flex items-center">
-                  <CheckCircle2 className="text-green-500 mr-2" /> 150% increase in revenue
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle2 className="text-green-500 mr-2" /> 40% lower customer drop-off rate
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle2 className="text-green-500 mr-2" /> 50% increase in returning customers
-                </li>
-              </ul>
-            </div>
-          </div>
+            {/* Case Study 2 */}
+            <div className="bg-gradient-to-r from-accent/5 to-primary/5 rounded-2xl sm:rounded-3xl p-8 sm:p-12 shadow-soft">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-3 h-3 bg-accent rounded-full"></div>
+                <h3 className="text-2xl font-bold text-neutral-900">🔹 E-Commerce Personalization</h3>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="bg-white rounded-xl p-6 shadow-soft">
+                  <h4 className="font-bold text-red-600 mb-4 text-lg">Before:</h4>
+                  <p className="text-neutral-700">Generic recommendations, low repeat customers</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-soft">
+                  <h4 className="font-bold text-accent mb-4 text-lg">After:</h4>
+                  <p className="text-neutral-700">AI-driven product suggestions + email automation</p>
+                </div>
+              </div>
 
-          <div className="text-center mt-12">
-            <Button className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg" onClick={openLeadForm}>
-              Want these results? Let's build your AI-powered app
-            </Button>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="flex items-center gap-2 bg-white/80 p-3 rounded-xl">
+                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
+                  <span className="text-sm font-medium text-neutral-800">150% revenue increase</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/80 p-3 rounded-xl">
+                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
+                  <span className="text-sm font-medium text-neutral-800">50% more returning customers</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-20 px-4 bg-gray-50">
+      {/* Packages & Pricing */}
+      <section className="py-16 sm:py-20 px-4 gradient-bg">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            How Much Does AI-Powered Custom Development <span className={highlightedText}>Cost?</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-16">
+            Packages & <span className="text-gradient">Pricing</span>
           </h2>
 
-          <p className="text-lg mb-8">💡 AI-powered apps range from $10,000 to $100,000+ depending on features.</p>
-
-          <table className="w-full mb-8">
-            <thead className="bg-[#CBF36E]">
-              <tr>
-                <th className="p-3 text-left">AI-Powered Solution</th>
-                <th className="p-3 text-left">What It Does</th>
-                <th className="p-3 text-left">Cost Range</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="bg-white">
-                <td className="p-3 border">Custom Web App</td>
-                <td className="p-3 border">Automate processes & manage data</td>
-                <td className="p-3 border">$10,000 – $50,000</td>
-              </tr>
-              <tr className="bg-gray-100">
-                <td className="p-3 border">AI Chatbot & Automation</td>
-                <td className="p-3 border">Automate customer service & sales</td>
-                <td className="p-3 border">$5,000 – $20,000</td>
-              </tr>
-              <tr className="bg-white">
-                <td className="p-3 border">AI-Driven CRM</td>
-                <td className="p-3 border">Manage leads, sales, & engagement</td>
-                <td className="p-3 border">$15,000 – $75,000</td>
-              </tr>
-              <tr className="bg-gray-100">
-                <td className="p-3 border">Business Dashboard</td>
-                <td className="p-3 border">AI-powered analytics & reporting</td>
-                <td className="p-3 border">$10,000 – $40,000</td>
-              </tr>
-              <tr className="bg-white">
-                <td className="p-3 border">E-Commerce AI Tools</td>
-                <td className="p-3 border">Personalized shopping experiences</td>
-                <td className="p-3 border">$15,000 – $50,000</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="overflow-x-auto mb-12">
+            <table className="w-full bg-white rounded-2xl shadow-soft overflow-hidden">
+              <thead>
+                <tr className="bg-primary/10 border-b-2 border-primary/20">
+                  <th className="text-left p-6 text-lg font-bold text-neutral-900">Project Type</th>
+                  <th className="text-left p-6 text-lg font-bold text-neutral-900">Best For...</th>
+                  <th className="text-left p-6 text-lg font-bold text-neutral-900">Starting At</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  {
+                    type: "Mini App",
+                    bestFor: "One problem, one tool (e.g. calculator, intake form)",
+                    price: "$1,995"
+                  },
+                  {
+                    type: "Workflow App", 
+                    bestFor: "Internal team tools, CRMs, job trackers",
+                    price: "$4,995"
+                  },
+                  {
+                    type: "Client Portal",
+                    bestFor: "Customer-facing login, dashboard, messaging",
+                    price: "$9,995+"
+                  },
+                  {
+                    type: "Add-On Support Plan",
+                    bestFor: "Hosting, maintenance, feature updates",
+                    price: "$200/month"
+                  },
+                  {
+                    type: "Custom Work",
+                    bestFor: "New features, integrations, help",
+                    price: "$95/hour"
+                  }
+                ].map((row, i) => (
+                  <tr key={i} className={`border-b border-neutral-100 ${i % 2 === 0 ? 'bg-neutral-50' : 'bg-white'}`}>
+                    <td className="p-6 font-medium text-neutral-900">{row.type}</td>
+                    <td className="p-6 text-neutral-700">{row.bestFor}</td>
+                    <td className="p-6 font-bold text-primary">{row.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           <div className="text-center">
-            <Button className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg" onClick={openLeadForm}>
-              Need a pricing estimate? Get a free consultation
+            <Button 
+              className="bg-primary/10 text-primary border-2 border-primary/20 hover:bg-primary hover:text-white hover:border-primary font-semibold transition-all duration-300"
+              onClick={() => window.openLeadForm()}
+            >
+              📞 Not sure what you need? Let's talk.
+              <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
         </div>
       </section>
 
-      {/* How to Get Started */}
-      <section className="py-20 px-4">
+      {/* How It Works */}
+      <section className="py-16 sm:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            How to Get Started with <span className={highlightedText}>AI-Powered Software Development</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-16">
+            How It <span className="text-gradient">Works</span>
           </h2>
 
-          <div className="space-y-8">
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">Step 1: Free AI-Powered Business Audit</h3>
-              <p>🚀 We analyze your business & identify AI-powered opportunities.</p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                step: "1️⃣",
+                title: "Free Discovery Call",
+                description: "We talk about what's slowing you down and what you wish your tools could do."
+              },
+              {
+                step: "2️⃣",
+                title: "Custom Build Plan",
+                description: "We design & build a tool around how your team works—not the other way around."
+              },
+              {
+                step: "3️⃣",
+                title: "Launch, Train, Grow",
+                description: "You get full support, documentation, and tools that evolve as you grow."
+              }
+            ].map((step, i) => (
+              <div key={i} className="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center">
+                <div className="text-4xl mb-4">{step.step}</div>
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">{step.title}</h3>
+                <p className="text-neutral-600 leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">Step 2: Build a Custom AI Solution</h3>
-              <p>✅ AI-powered automation, CRM, dashboards, chatbots, and more.</p>
+      {/* Visual Demo Section */}
+      <section className="py-16 sm:py-20 px-4 gradient-bg">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-6">
+                From Spreadsheet Chaos to Streamlined Success
+              </h3>
+              <p className="text-lg text-neutral-600 mb-6">
+                Here's what happens when you replace manual processes with custom-built automation.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">!</div>
+                  <div>
+                    <span className="font-medium text-red-600">Before:</span>
+                    <span className="text-neutral-700 ml-2">Sticky notes, spreadsheets, and constant confusion</span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">✓</div>
+                  <div>
+                    <span className="font-medium text-primary">After:</span>
+                    <span className="text-neutral-700 ml-2">Custom tools that work exactly how your business does</span>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">Step 3: Scale Faster & Work Smarter</h3>
-              <p>✅ More automation. ✅ Higher efficiency. ✅ Faster growth.</p>
+            
+            <div>
+              <Image
+                src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop"
+                alt="Custom App Development"
+                width={600}
+                height={400}
+                className="rounded-2xl shadow-soft w-full h-auto"
+              />
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="text-center mt-12">
-            <p className="text-xl mb-6">Want to automate your business with AI? Let's talk.</p>
-            <Button className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg" onClick={openLeadForm}>
-              Book a Free AI App Consultation
+      {/* Final CTA */}
+      <section className="py-16 sm:py-20 px-4 bg-gradient-to-r from-primary to-primary-dark text-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="glass-wave rounded-2xl sm:rounded-3xl p-8 md:p-12 max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+              Ready to Replace Spreadsheets with <span className="text-wave-300">Something Smarter?</span>
+            </h2>
+            <p className="text-lg sm:text-xl mb-8 opacity-90 leading-relaxed">
+              We'll build you the tool your business actually needs—fast.
+            </p>
+            
+            <div className="grid sm:grid-cols-3 gap-4 mb-8 text-sm">
+              <div className="flex items-center justify-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>No obligation</span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>Straight answers</span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>Clear pricing</span>
+              </div>
+            </div>
+            
+            <Button 
+              size="lg"
+              className="bg-white text-primary hover:bg-neutral-100 hover:text-primary-dark px-8 py-4 rounded-2xl text-lg font-semibold shadow-medium hover:shadow-strong transition-all duration-300"
+              onClick={() => window.openLeadForm()}
+            >
+              📞 Book Your Free Strategy Call
+              <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </div>
         </div>
       </section>
 
       <Footer />
-
-      {showLeadForm && <LeadCaptureForm onClose={closeLeadForm} />}
     </div>
   )
 }
-
