@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { CheckCircle2, Star, Zap, TrendingUp, Users, Shield, Globe, Bot, Search, Code, ArrowRight, Play, Clock, Plus, Smartphone, Monitor } from "lucide-react"
+import { CheckCircle2, Star, Zap, TrendingUp, Users, Shield, Globe, Bot, Search, Code, ArrowRight, Play, Clock, Plus, Smartphone, Monitor, Megaphone, Settings } from "lucide-react"
 import Image from "next/image"
 
 export default function Pricing() {
@@ -425,6 +425,294 @@ export default function Pricing() {
         </div>
       </section>
 
+      {/* Growth & Visibility Section */}
+      <section className="py-16 sm:py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Megaphone className="w-8 h-8 text-primary" />
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900">
+                Growth & Visibility
+              </h2>
+            </div>
+            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+              Get found. Get leads. Get results. We help your business show up where it matters—on Google, in inboxes, and in your customer's mind.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12">
+            {[
+              {
+                name: "Local Launch",
+                price: "$495",
+                period: "/month",
+                description: "Just want to show up? We've got you.",
+                icon: "🟢",
+                features: [
+                  "Google Business Profile setup & optimization",
+                  "Keyword research & local visibility tune-up",
+                  "Monthly reporting",
+                  "Review response templates"
+                ],
+                popular: false,
+                perfect: "Perfect for: New local businesses, basic online presence"
+              },
+              {
+                name: "Growth Plan",
+                price: "$995",
+                period: "/month",
+                description: "Attract more leads with local SEO + smart content.",
+                icon: "🔵",
+                features: [
+                  "Everything in Local Launch +",
+                  "2 blog posts or updates/month",
+                  "Social media content prompts",
+                  "On-page SEO improvements",
+                  "Competitor keyword tracking"
+                ],
+                popular: true,
+                perfect: "Perfect for: Growing businesses, consistent lead generation"
+              },
+              {
+                name: "Visibility Engine",
+                price: "$1,995",
+                period: "/month",
+                description: "Full-service marketing without the agency bloat.",
+                icon: "🟣",
+                features: [
+                  "Everything in Growth +",
+                  "Email campaign setup & list growth",
+                  "Landing page or promo funnel",
+                  "Seasonal campaign planning",
+                  "Custom strategy call each month"
+                ],
+                popular: false,
+                perfect: "Perfect for: Established businesses, comprehensive marketing"
+              },
+            ].map((tier, i) => (
+              <div key={i} className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-soft hover:shadow-medium transition-all duration-300 group hover:-translate-y-1 border-2 ${tier.popular ? 'border-primary shadow-wave' : 'border-neutral-100'}`}>
+                {tier.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-medium">
+                      Most Popular
+                    </div>
+                  </div>
+                )}
+                
+                <div className="text-center mb-6">
+                  <div className="text-2xl mb-2">{tier.icon}</div>
+                  <h3 className="text-xl font-bold text-neutral-900 mb-1">{tier.name}</h3>
+                  <div className="flex items-baseline justify-center gap-1 mb-2">
+                    <p className="text-3xl font-bold text-gradient">{tier.price}</p>
+                    <p className="text-lg text-neutral-600">{tier.period}</p>
+                  </div>
+                  <p className="text-sm text-neutral-600 italic">{tier.description}</p>
+                </div>
+
+                <ul className="space-y-3 mb-6">
+                  {tier.features.map((feature, j) => (
+                    <li key={j} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-neutral-700 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="bg-neutral-50 rounded-xl p-3 mb-6">
+                  <p className="text-xs text-neutral-600 font-medium">{tier.perfect}</p>
+                </div>
+
+                <Button 
+                  className={`w-full py-3 rounded-2xl font-semibold transition-all duration-300 ${
+                    tier.popular 
+                      ? 'bg-primary hover:bg-primary-dark text-white shadow-medium hover:shadow-strong' 
+                      : 'bg-primary/10 text-primary border-2 border-primary/20 hover:bg-primary hover:text-white hover:border-primary'
+                  }`}
+                  onClick={() => window.openLeadForm()}
+                >
+                  Start Growing
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
+            ))}
+          </div>
+
+          {/* Growth Custom Work */}
+          <div className="flex justify-center">
+            <div className="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 max-w-md">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="text-xl">⏱️</div>
+                <h3 className="text-xl font-bold text-neutral-900">Custom Work</h3>
+                <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold">$95/hr</span>
+              </div>
+              <p className="text-neutral-600 mb-4">For unique content, campaign builds, or local ad support.</p>
+              <ul className="space-y-2 text-sm text-neutral-700">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>Custom content creation</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>Special campaign builds</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>Local ad management</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>Strategy consulting</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Digital Setup & Tech Support Section */}
+      <section className="py-16 sm:py-20 px-4 gradient-bg">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Settings className="w-8 h-8 text-primary" />
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900">
+                Digital Setup & Tech Support
+              </h2>
+            </div>
+            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+              Sometimes you just need a smart human to help set things up right. We're that human.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12">
+            {[
+              {
+                name: "Tech Tune-Up",
+                price: "$295",
+                period: " flat",
+                description: "Get your digital ducks in a row.",
+                icon: "🟢",
+                features: [
+                  "Domain + email setup (Google Workspace, etc.)",
+                  "Connect contact forms to your inbox",
+                  "Social profile cleanup",
+                  "Recommendations on tools & systems"
+                ],
+                popular: false,
+                perfect: "Perfect for: New businesses, basic tech setup"
+              },
+              {
+                name: "Smart Setup",
+                price: "$495",
+                period: " flat",
+                description: "We'll connect your tools and make them talk.",
+                icon: "🔵",
+                features: [
+                  "Everything in Tune-Up +",
+                  "CRM or booking tool setup",
+                  "Calendar integrations",
+                  "Payment or invoice system connected",
+                  "AI assistant configuration (OpenAI, Tidio, etc.)"
+                ],
+                popular: true,
+                perfect: "Perfect for: Growing businesses, system integrations"
+              },
+              {
+                name: "Full Digital Overhaul",
+                price: "$995",
+                period: " flat",
+                description: "Let's wipe the chaos and rebuild your digital foundation.",
+                icon: "🟣",
+                features: [
+                  "Everything in Smart Setup +",
+                  "System audit",
+                  "Cleanup & migration of old tools",
+                  "Dashboard setup for lead/traffic tracking",
+                  "One-on-one training session"
+                ],
+                popular: false,
+                perfect: "Perfect for: Established businesses, complete digital reorganization"
+              },
+            ].map((tier, i) => (
+              <div key={i} className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-soft hover:shadow-medium transition-all duration-300 group hover:-translate-y-1 border-2 ${tier.popular ? 'border-primary shadow-wave' : 'border-neutral-100'}`}>
+                {tier.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-medium">
+                      Most Popular
+                    </div>
+                  </div>
+                )}
+                
+                <div className="text-center mb-6">
+                  <div className="text-2xl mb-2">{tier.icon}</div>
+                  <h3 className="text-xl font-bold text-neutral-900 mb-1">{tier.name}</h3>
+                  <div className="flex items-baseline justify-center gap-1 mb-2">
+                    <p className="text-3xl font-bold text-gradient">{tier.price}</p>
+                    <p className="text-lg text-neutral-600">{tier.period}</p>
+                  </div>
+                  <p className="text-sm text-neutral-600 italic">{tier.description}</p>
+                </div>
+
+                <ul className="space-y-3 mb-6">
+                  {tier.features.map((feature, j) => (
+                    <li key={j} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-neutral-700 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="bg-neutral-50 rounded-xl p-3 mb-6">
+                  <p className="text-xs text-neutral-600 font-medium">{tier.perfect}</p>
+                </div>
+
+                <Button 
+                  className={`w-full py-3 rounded-2xl font-semibold transition-all duration-300 ${
+                    tier.popular 
+                      ? 'bg-primary hover:bg-primary-dark text-white shadow-medium hover:shadow-strong' 
+                      : 'bg-primary/10 text-primary border-2 border-primary/20 hover:bg-primary hover:text-white hover:border-primary'
+                  }`}
+                  onClick={() => window.openLeadForm()}
+                >
+                  Get This Setup
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
+            ))}
+          </div>
+
+          {/* Tech Support Ongoing Help */}
+          <div className="flex justify-center">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-soft max-w-md">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="text-xl">⏱️</div>
+                <h3 className="text-xl font-bold text-neutral-900">Ongoing Help</h3>
+                <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold">$95/hr</span>
+              </div>
+              <p className="text-neutral-600 mb-4">Tech issues, AI setup, automations, weird requests—we've got you.</p>
+              <ul className="space-y-2 text-sm text-neutral-700">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>Tech troubleshooting</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>AI setup & configuration</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>Custom automations</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>Those weird requests you can't Google</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why These Prices Work */}
       <section className="py-16 sm:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
@@ -553,7 +841,7 @@ export default function Pricing() {
             {[
               {
                 question: "How long does it take to build?",
-                answer: "Websites: 2-4 weeks. Mini Apps: 3-5 weeks. Workflow Apps: 6-8 weeks. Client Portals: 8-12 weeks. We'll give you an exact timeline before we start."
+                answer: "Websites: 2-4 weeks. Mini Apps: 3-5 weeks. Workflow Apps: 6-8 weeks. Client Portals: 8-12 weeks. Marketing campaigns: 1-2 weeks to start. Tech setups: 1-3 days. We'll give you an exact timeline before we start."
               },
               {
                 question: "What if I need changes later?",
@@ -561,15 +849,19 @@ export default function Pricing() {
               },
               {
                 question: "Do I need to pay everything upfront?",
-                answer: "Nope. 50% to start, 50% when you're happy with the final result. No payment until you approve everything."
+                answer: "For one-time projects: 50% to start, 50% when you're happy. For monthly services: first month upfront, then monthly billing. No payment until you approve everything."
               },
               {
                 question: "What happens if I don't like it?",
                 answer: "We work with you until you do. Unlimited revisions during the project. We want you to love what we build."
               },
               {
+                question: "Can I cancel monthly services?",
+                answer: "Yes, with 30 days notice. No long-term contracts, no cancellation fees. We earn your business every month."
+              },
+              {
                 question: "Do you handle hosting and maintenance?",
-                answer: "Yes! Our Partner Plan ($200/mo) covers hosting, updates, security, and maintenance. Or handle it yourself—your choice."
+                answer: "Yes! Our monthly plans include hosting, updates, security, and maintenance. Or handle it yourself—your choice."
               }
             ].map((faq, i) => (
               <div key={i} className="glass-effect rounded-2xl p-6 sm:p-8">
@@ -622,6 +914,12 @@ export default function Pricing() {
                     <SelectItem value="mini-app">Mini App ($1,995)</SelectItem>
                     <SelectItem value="workflow-app">Workflow App ($4,995)</SelectItem>
                     <SelectItem value="client-portal">Client Portal ($9,995+)</SelectItem>
+                    <SelectItem value="local-launch">Local Launch ($495/mo)</SelectItem>
+                    <SelectItem value="growth-plan">Growth Plan ($995/mo)</SelectItem>
+                    <SelectItem value="visibility-engine">Visibility Engine ($1,995/mo)</SelectItem>
+                    <SelectItem value="tech-tuneup">Tech Tune-Up ($295)</SelectItem>
+                    <SelectItem value="smart-setup">Smart Setup ($495)</SelectItem>
+                    <SelectItem value="digital-overhaul">Full Digital Overhaul ($995)</SelectItem>
                     <SelectItem value="not-sure">Not sure - help me decide</SelectItem>
                   </SelectContent>
                 </Select>
