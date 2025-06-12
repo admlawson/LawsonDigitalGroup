@@ -9,6 +9,31 @@ import Image from "next/image"
 
 export default function Home() {
   const [isPlayAIReady, setIsPlayAIReady] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  // Carousel images - human-focused, positive, business-related
+  const carouselImages = [
+    {
+      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+      alt: "Happy business team celebrating success",
+      badge: "Growing Together"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop",
+      alt: "Small business owner working with technology",
+      badge: "Smart Solutions"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=600&h=400&fit=crop",
+      alt: "Team collaborating on business growth",
+      badge: "Building Success"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop",
+      alt: "Business owner smiling with laptop",
+      badge: "Your Success"
+    }
+  ]
 
   useEffect(() => {
     const checkPlayAI = () => {
@@ -34,6 +59,17 @@ export default function Home() {
     window.addEventListener("chatWithAgent", handleChatWithAgent)
     return () => window.removeEventListener("chatWithAgent", handleChatWithAgent)
   }, [isPlayAIReady])
+
+  // Auto-scroll carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+      )
+    }, 4000) // Change image every 4 seconds
+
+    return () => clearInterval(interval)
+  }, [carouselImages.length])
 
   const chatWithAgent = () => {
     if (isPlayAIReady) {
@@ -135,20 +171,52 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Hero Image */}
+              {/* Hero Image Carousel */}
               <div className="relative order-first lg:order-last">
                 <div className="relative max-w-md mx-auto lg:max-w-none">
-                  <Image
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
-                    alt="Business Growth Dashboard"
-                    width={600}
-                    height={400}
-                    className="rounded-2xl sm:rounded-3xl shadow-strong w-full h-auto"
-                  />
-                  <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-medium">
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-xs sm:text-sm font-medium">System Working</span>
+                  {/* Carousel Container */}
+                  <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-strong">
+                    <div 
+                      className="flex transition-transform duration-700 ease-in-out"
+                      style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                    >
+                      {carouselImages.map((image, index) => (
+                        <div key={index} className="min-w-full relative">
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            width={600}
+                            height={400}
+                            className="w-full h-auto object-cover"
+                          />
+                          {/* Gradient overlay for better text readability */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* Badge overlay */}
+                    <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-medium">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full animate-pulse"></div>
+                        <span className="text-xs sm:text-sm font-medium">{carouselImages[currentImageIndex].badge}</span>
+                      </div>
+                    </div>
+                    
+                    {/* Carousel Indicators */}
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                      {carouselImages.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            index === currentImageIndex 
+                              ? 'bg-white w-6' 
+                              : 'bg-white/50 hover:bg-white/75'
+                          }`}
+                          aria-label={`Go to slide ${index + 1}`}
+                        />
+                      ))}
                     </div>
                   </div>
                 </div>
