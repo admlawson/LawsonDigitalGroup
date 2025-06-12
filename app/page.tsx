@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, ArrowRight, Zap, TrendingUp, Users, Shield, Star, Play } from "lucide-react"
+import { CheckCircle2, ArrowRight, Zap, TrendingUp, Users, Shield, Star, Play, Monitor, MessageSquare, Search, Code } from "lucide-react"
 import Image from "next/image"
 
 export default function Home() {
@@ -50,59 +50,93 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"></div>
+        
+        {/* Hero Background Image */}
+        <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 hidden lg:block">
+          <Image
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&crop=top"
+            alt="AI Technology Background"
+            fill
+            className="object-cover"
+          />
+        </div>
+        
         <div className="container-custom relative z-10">
-          <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-primary-dark mb-8 animate-fade-up">
-              <Zap className="w-4 h-4" />
-              Trusted by 100+ Growing Businesses
-            </div>
-            
-            <h1 className="text-hero font-bold text-neutral-900 mb-6 animate-fade-up">
-              AI-Powered Growth for
-              <span className="text-gradient block mt-2">Small Businesses</span>
-            </h1>
-            
-            <p className="text-xl text-neutral-600 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-up">
-              Transform your business with intelligent websites, automated customer engagement, and data-driven marketing that actually converts.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-up">
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-medium hover:shadow-strong transition-all duration-300"
-                onClick={() => window.openLeadForm()}
-              >
-                Get Your Free AI Strategy
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-neutral-300 text-neutral-700 hover:bg-neutral-50 px-8 py-4 rounded-2xl text-lg font-semibold"
-                onClick={chatWithAgent}
-              >
-                <Play className="mr-2 w-5 h-5" />
-                Watch Demo
-              </Button>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-neutral-500 animate-fade-up">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-1">
-                  {[1,2,3,4,5].map(i => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                  ))}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-primary-dark mb-8 animate-fade-up">
+                  <Zap className="w-4 h-4" />
+                  Trusted by 100+ Growing Businesses
                 </div>
-                <span className="font-medium">4.9/5 Rating</span>
+                
+                <h1 className="text-hero font-bold text-neutral-900 mb-6 animate-fade-up">
+                  AI-Powered Growth for
+                  <span className="text-gradient block mt-2">Small Businesses</span>
+                </h1>
+                
+                <p className="text-xl text-neutral-600 mb-8 leading-relaxed animate-fade-up">
+                  Transform your business with intelligent websites, automated customer engagement, and data-driven marketing that actually converts.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-up">
+                  <Button 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-medium hover:shadow-strong transition-all duration-300"
+                    onClick={() => window.openLeadForm()}
+                  >
+                    Get Your Free AI Strategy
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-2 border-neutral-300 text-neutral-700 hover:bg-neutral-50 px-8 py-4 rounded-2xl text-lg font-semibold"
+                    onClick={chatWithAgent}
+                  >
+                    <Play className="mr-2 w-5 h-5" />
+                    Watch Demo
+                  </Button>
+                </div>
+
+                {/* Trust Indicators */}
+                <div className="flex flex-wrap gap-8 text-sm text-neutral-500 animate-fade-up">
+                  <div className="flex items-center gap-2">
+                    <div className="flex -space-x-1">
+                      {[1,2,3,4,5].map(i => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                    <span className="font-medium">4.9/5 Rating</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="w-4 h-4 text-primary" />
+                    <span>3X Average Lead Increase</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-accent" />
+                    <span>Enterprise-Grade Security</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-primary" />
-                <span>3X Average Lead Increase</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-accent" />
-                <span>Enterprise-Grade Security</span>
+              
+              {/* Hero Image */}
+              <div className="relative lg:block hidden">
+                <div className="relative">
+                  <Image
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+                    alt="AI Dashboard Analytics"
+                    width={600}
+                    height={400}
+                    className="rounded-3xl shadow-strong"
+                  />
+                  <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-medium">
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-sm font-medium">AI Agent Active</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -179,32 +213,41 @@ export default function Home() {
                 title: "AI-Powered Websites",
                 description: "Websites that convert visitors into customers with intelligent design and automated engagement.",
                 features: ["Smart Lead Capture", "A/B Testing", "Performance Analytics"],
-                image: "/placeholder.svg?height=300&width=400"
+                image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=300&fit=crop",
+                icon: <Monitor className="w-6 h-6 text-primary" />
               },
               {
                 title: "AI Chatbots & Automation",
                 description: "24/7 customer support and lead qualification that never sleeps, never misses a lead.",
                 features: ["Instant Responses", "Lead Qualification", "CRM Integration"],
-                image: "/placeholder.svg?height=300&width=400"
+                image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop",
+                icon: <MessageSquare className="w-6 h-6 text-primary" />
               },
               {
                 title: "SEO & Digital Marketing",
                 description: "Data-driven marketing strategies that maximize your ROI and dominate search results.",
                 features: ["Keyword Optimization", "Content Strategy", "Analytics Dashboard"],
-                image: "/placeholder.svg?height=300&width=400"
+                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
+                icon: <Search className="w-6 h-6 text-primary" />
               },
               {
                 title: "Custom Development",
                 description: "Tailored solutions that integrate seamlessly with your business processes and goals.",
                 features: ["Custom Integrations", "Scalable Architecture", "Ongoing Support"],
-                image: "/placeholder.svg?height=300&width=400"
+                image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop",
+                icon: <Code className="w-6 h-6 text-primary" />
               }
             ].map((service, i) => (
               <div key={i} className="group">
                 <div className="bg-white rounded-3xl p-8 shadow-soft hover:shadow-medium transition-all duration-300 group-hover:-translate-y-1">
                   <div className="flex flex-col lg:flex-row gap-6">
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-neutral-900 mb-3">{service.title}</h3>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2 bg-primary/10 rounded-xl">
+                          {service.icon}
+                        </div>
+                        <h3 className="text-2xl font-bold text-neutral-900">{service.title}</h3>
+                      </div>
                       <p className="text-neutral-600 mb-6 leading-relaxed">{service.description}</p>
                       <ul className="space-y-2 mb-6">
                         {service.features.map((feature, j) => (
@@ -225,7 +268,7 @@ export default function Home() {
                         alt={service.title}
                         width={300}
                         height={200}
-                        className="rounded-2xl"
+                        className="rounded-2xl shadow-soft"
                       />
                     </div>
                   </div>
@@ -255,21 +298,21 @@ export default function Home() {
                 author: "Sarah Johnson",
                 position: "CEO, TechStart Solutions",
                 metric: "15X lead increase",
-                image: "/placeholder.svg?height=80&width=80"
+                image: "https://images.unsplash.com/photo-1494790108755-2616b612b7c4?w=80&h=80&fit=crop&crop=face"
               },
               {
                 quote: "The AI chatbot handles 80% of our customer inquiries, freeing our team for strategic work.",
                 author: "Michael Chen",
                 position: "Founder, GrowthCorp",
                 metric: "80% automation",
-                image: "/placeholder.svg?height=80&width=80"
+                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face"
               },
               {
                 quote: "Our website conversion rate doubled in just 60 days with LDG's optimization strategies.",
                 author: "Lisa Rodriguez",
                 position: "Marketing Director, ScaleUp Inc",
                 metric: "2X conversion rate",
-                image: "/placeholder.svg?height=80&width=80"
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
               }
             ].map((testimonial, i) => (
               <div key={i} className="glass-effect rounded-3xl p-8">
