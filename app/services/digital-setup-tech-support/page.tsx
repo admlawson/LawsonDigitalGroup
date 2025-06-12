@@ -3,7 +3,7 @@
 import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, ArrowRight, Wrench, Settings, Users, Clock, Zap, Shield, Calendar } from "lucide-react"
+import { CheckCircle2, ArrowRight, Wrench, Settings, Users, Clock, Zap, Shield } from "lucide-react"
 import Image from "next/image"
 
 export default function DigitalSetupTechSupport() {
