@@ -3,7 +3,7 @@ import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ChevronRight, CheckCircle2, X, Star, Zap, TrendingUp, Users, Shield, Globe, Bot, Search, Code, ArrowRight } from "lucide-react"
+import { ChevronRight, CheckCircle2, X, Star, Zap, TrendingUp, Users, Shield, Globe, Bot, Search, Code, ArrowRight, Play } from "lucide-react"
 import Image from "next/image"
 import PricingCalculator from "@/components/PricingCalculator"
 
@@ -195,7 +195,7 @@ export default function Pricing() {
                 popular: false
               },
             ].map((tier, i) => (
-              <div key={i} className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-soft hover:shadow-medium transition-all duration-300 ${tier.popular ? 'ring-2 ring-primary shadow-wave' : ''}`}>
+              <div key={i} className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-soft hover:shadow-medium transition-all duration-300 group hover:-translate-y-1 ${tier.popular ? 'ring-2 ring-primary shadow-wave' : ''}`}>
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-medium">
@@ -269,7 +269,7 @@ export default function Pricing() {
                 icon: <TrendingUp className="w-6 h-6 text-primary" />
               },
             ].map((tier, i) => (
-              <div key={i} className="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:shadow-medium transition-all duration-300">
+              <div key={i} className="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:shadow-medium transition-all duration-300 group hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-3 bg-primary/10 rounded-2xl">
                     {tier.icon}
@@ -336,7 +336,7 @@ export default function Pricing() {
                 results: "465% growth average"
               },
             ].map((tier, i) => (
-              <div key={i} className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-soft hover:shadow-medium transition-all duration-300">
+              <div key={i} className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-soft hover:shadow-medium transition-all duration-300 group hover:-translate-y-1">
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-bold text-neutral-900 mb-2">{tier.name}</h3>
                   <div className="flex items-baseline justify-center gap-1 mb-2">
