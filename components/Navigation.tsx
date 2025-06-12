@@ -25,7 +25,7 @@ const Navigation = () => {
             <Link href="/services" className="flex items-center text-neutral-700 hover:text-primary transition-colors font-medium">
               Services <ChevronDown className="ml-1 h-4 w-4" />
             </Link>
-            <div className="absolute left-0 mt-2 w-64 rounded-2xl shadow-strong bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div className="absolute left-0 mt-2 w-72 rounded-2xl shadow-strong bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <div className="p-2" role="menu">
                 <Link
                   href="/services/ai-powered-websites"
@@ -50,6 +50,12 @@ const Navigation = () => {
                   className="block px-4 py-3 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-primary rounded-xl transition-colors"
                 >
                   Custom Apps & Tools
+                </Link>
+                <Link
+                  href="/services/digital-setup-tech-support"
+                  className="block px-4 py-3 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-primary rounded-xl transition-colors"
+                >
+                  Digital Setup & Tech Support
                 </Link>
               </div>
             </div>
