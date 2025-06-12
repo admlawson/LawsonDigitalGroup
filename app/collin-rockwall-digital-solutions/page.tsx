@@ -1,3 +1,5 @@
+"use client"
+
 import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
@@ -110,6 +112,7 @@ export default function CollinRockwallDigitalSolutions() {
       </section>
 
       {/* Cities We Serve */}
+      
       <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
@@ -340,4 +343,3 @@ export default function CollinRockwallDigitalSolutions() {
     </div>
   )
 }
-

@@ -1,3 +1,5 @@
+"use client"
+
 import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
@@ -194,4 +196,3 @@ export default function AIPoweredWebsites() {
     </div>
   )
 }
-

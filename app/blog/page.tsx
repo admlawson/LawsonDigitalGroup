@@ -1,3 +1,5 @@
+"use client"
+
 import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import BlogHero from "@/components/blog/BlogHero"
@@ -29,4 +31,3 @@ export default function Blog() {
     </div>
   )
 }
-
