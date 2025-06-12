@@ -375,7 +375,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6">
               <Button 
                 size="lg" 
-                className="bg-white text-primary hover:bg-neutral-100 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl text-base sm:text-lg font-semibold shadow-medium w-full sm:w-auto"
+                className="bg-white text-primary hover:bg-neutral-100 hover:text-primary-dark px-6 sm:px-8 py-3 sm:py-4 rounded-2xl text-base sm:text-lg font-semibold shadow-medium hover:shadow-strong transition-all duration-300 w-full sm:w-auto"
                 onClick={() => window.openLeadForm()}
               >
                 Get Your Free Strategy Session
@@ -383,8 +383,7 @@ export default function Home() {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-2 border-white text-white hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl text-base sm:text-lg font-semibold w-full sm:w-auto"
+                className="bg-white/10 text-white border-2 border-white/20 hover:bg-white hover:text-primary hover:border-white backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 rounded-2xl text-base sm:text-lg font-semibold shadow-medium hover:shadow-strong transition-all duration-300 w-full sm:w-auto"
                 onClick={chatWithAgent}
               >
                 <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
