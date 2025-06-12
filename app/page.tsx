@@ -4,10 +4,7 @@ import { useEffect, useState } from "react"
 import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { CheckCircle2, Star, ArrowRight, BarChart, Bot, Globe, Search, Shield, Zap } from "lucide-react"
+import { CheckCircle2, ArrowRight, Zap, TrendingUp, Users, Shield, Star, Play } from "lucide-react"
 import Image from "next/image"
 
 export default function Home() {
@@ -20,13 +17,8 @@ export default function Home() {
       }
     }
 
-    // Check immediately
     checkPlayAI()
-
-    // Set up an interval to check periodically
     const intervalId = setInterval(checkPlayAI, 1000)
-
-    // Clean up the interval on component unmount
     return () => clearInterval(intervalId)
   }, [])
 
@@ -40,10 +32,7 @@ export default function Home() {
     }
 
     window.addEventListener("chatWithAgent", handleChatWithAgent)
-
-    return () => {
-      window.removeEventListener("chatWithAgent", handleChatWithAgent)
-    }
+    return () => window.removeEventListener("chatWithAgent", handleChatWithAgent)
   }, [isPlayAIReady])
 
   const chatWithAgent = () => {
@@ -55,534 +44,296 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
       <Navigation />
+      
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                AI-Powered Websites & Digital Growth for <span className="text-[#CBF36E]">SMBs</span>
-              </h1>
-              <p className="text-xl mb-8">Get More Leads, Automate Engagement & Scale Faster.</p>
-              <div className="space-y-4 mb-8">
-                {[
-                  "High-Converting Websites",
-                  "AI Chatbots & Automation",
-                  "SEO & Digital Marketing That Drives Sales",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start">
-                    <CheckCircle2 className="text-[#CBF36E] mr-2 h-6 w-6 flex-shrink-0 mt-0.5" />
-                    <span className="text-lg">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="font-bold text-lg mb-6">🔥 Join 100+ SMBs Growing Faster with LDG.</p>
-              <div className="space-x-4">
-                <Button
-                  className="bg-[#CBF36E] hover:bg-[#b9e050] text-black text-lg px-8 py-6 rounded-full"
-                  onClick={() => window.openLeadForm()}
-                >
-                  Book a Free AI Strategy Call
-                </Button>
-                <Button
-                  className="bg-white hover:bg-gray-100 text-black text-lg px-8 py-6 rounded-full border-2 border-[#CBF36E]"
-                  onClick={chatWithAgent}
-                >
-                  Chat with an Agent
-                </Button>
-              </div>
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"></div>
+        <div className="container-custom relative z-10">
+          <div className="max-w-6xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-primary-dark mb-8 animate-fade-up">
+              <Zap className="w-4 h-4" />
+              Trusted by 100+ Growing Businesses
             </div>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-[#CBF36E]/20 rounded-2xl blur-xl"></div>
-              <div className="backdrop-blur-md bg-white/30 border border-gray-200 rounded-2xl p-8 shadow-lg relative">
-                <Image
-                  src="/placeholder.svg?height=500&width=500"
-                  alt="AI-Powered Growth"
-                  width={500}
-                  height={500}
-                  className="rounded-xl shadow-lg"
-                />
+            
+            <h1 className="text-hero font-bold text-neutral-900 mb-6 animate-fade-up">
+              AI-Powered Growth for
+              <span className="text-gradient block mt-2">Small Businesses</span>
+            </h1>
+            
+            <p className="text-xl text-neutral-600 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-up">
+              Transform your business with intelligent websites, automated customer engagement, and data-driven marketing that actually converts.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-up">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-medium hover:shadow-strong transition-all duration-300"
+                onClick={() => window.openLeadForm()}
+              >
+                Get Your Free AI Strategy
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-neutral-300 text-neutral-700 hover:bg-neutral-50 px-8 py-4 rounded-2xl text-lg font-semibold"
+                onClick={chatWithAgent}
+              >
+                <Play className="mr-2 w-5 h-5" />
+                Watch Demo
+              </Button>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-neutral-500 animate-fade-up">
+              <div className="flex items-center gap-2">
+                <div className="flex -space-x-1">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <span className="font-medium">4.9/5 Rating</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-primary" />
+                <span>3X Average Lead Increase</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-accent" />
+                <span>Enterprise-Grade Security</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pain Points & Solutions */}
-      <section className="py-20 bg-gray-50 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Common Challenges <span className="text-[#CBF36E]">We Solve</span>
-          </h2>
+      {/* Key Benefits */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-display font-bold text-neutral-900 mb-4">
+              Why Growing Businesses Choose LDG
+            </h2>
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+              We combine cutting-edge AI technology with proven growth strategies to deliver measurable results.
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                problem: "Our website looks great but doesn't bring leads!",
-                solution: "LDG builds websites designed for sales, not just aesthetics.",
+                icon: <Zap className="w-8 h-8 text-primary" />,
+                title: "AI-Powered Automation",
+                description: "Automate customer interactions, lead qualification, and follow-ups while you focus on growing your business.",
+                metric: "80% time saved"
               },
               {
-                problem: "We waste money on ads but get no ROI.",
-                solution: "AI-driven SEO & paid marketing that actually converts.",
+                icon: <TrendingUp className="w-8 h-8 text-accent" />,
+                title: "Data-Driven Results",
+                description: "Every strategy is backed by analytics and optimized for maximum ROI and conversion rates.",
+                metric: "3X lead increase"
               },
               {
-                problem: "We spend hours responding to inquiries.",
-                solution: "AI chatbots automate customer engagement 24/7.",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow"
-              >
-                <div className="bg-red-100 text-red-800 rounded-full px-4 py-2 inline-block mb-4">🔴 Problem</div>
-                <h3 className="text-xl font-bold mb-4">{item.problem}</h3>
-                <div className="h-px bg-gray-200 my-4"></div>
-                <div className="bg-green-100 text-green-800 rounded-full px-4 py-2 inline-block mb-4">✅ Solution</div>
-                <p>{item.solution}</p>
+                icon: <Users className="w-8 h-8 text-primary" />,
+                title: "24/7 Customer Engagement",
+                description: "Never miss a potential customer with AI chatbots that work around the clock.",
+                metric: "50% faster response"
+              }
+            ].map((benefit, i) => (
+              <div key={i} className="group">
+                <div className="glass-effect rounded-3xl p-8 h-full hover:shadow-medium transition-all duration-300 group-hover:-translate-y-1">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-primary/10 rounded-2xl">
+                      {benefit.icon}
+                    </div>
+                    <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                      {benefit.metric}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-neutral-900 mb-3">{benefit.title}</h3>
+                  <p className="text-neutral-600 leading-relaxed">{benefit.description}</p>
+                </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <div className="space-x-4">
-              <Button
-                className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg"
-                onClick={() => window.openLeadForm()}
-              >
-                Let's Fix This – Book a Free Strategy Call
-              </Button>
-              <Button
-                className="bg-white hover:bg-gray-100 text-black text-lg px-8 py-6 rounded-full border-2 border-[#CBF36E]"
-                onClick={chatWithAgent}
-              >
-                Chat with an Agent
-              </Button>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Core Services Overview */}
-      <section id="services" className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            What <span className="text-[#CBF36E]">We Do</span>
-          </h2>
-          <p className="text-center text-lg mb-16 max-w-3xl mx-auto">
-            LDG helps SMBs grow faster using cutting-edge AI, automation, and web development.
-          </p>
+      {/* Services Overview */}
+      <section id="services" className="section-padding gradient-bg">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-display font-bold text-neutral-900 mb-4">
+              Complete AI Growth Solutions
+            </h2>
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+              From intelligent websites to automated marketing, we have everything you need to scale your business.
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8">
             {[
               {
                 title: "AI-Powered Websites",
-                description: "Turn visitors into customers with data-driven design",
-                icon: <Globe className="w-10 h-10 text-[#CBF36E]" />,
+                description: "Websites that convert visitors into customers with intelligent design and automated engagement.",
+                features: ["Smart Lead Capture", "A/B Testing", "Performance Analytics"],
+                image: "/placeholder.svg?height=300&width=400"
               },
               {
-                title: "AI Chatbots & Automations",
-                description: "Capture leads & support customers 24/7",
-                icon: <Bot className="w-10 h-10 text-[#CBF36E]" />,
+                title: "AI Chatbots & Automation",
+                description: "24/7 customer support and lead qualification that never sleeps, never misses a lead.",
+                features: ["Instant Responses", "Lead Qualification", "CRM Integration"],
+                image: "/placeholder.svg?height=300&width=400"
               },
               {
-                title: "SEO & PPC for SMBs",
-                description: "Get higher rankings & maximize ad spend",
-                icon: <Search className="w-10 h-10 text-[#CBF36E]" />,
+                title: "SEO & Digital Marketing",
+                description: "Data-driven marketing strategies that maximize your ROI and dominate search results.",
+                features: ["Keyword Optimization", "Content Strategy", "Analytics Dashboard"],
+                image: "/placeholder.svg?height=300&width=400"
               },
               {
-                title: "Custom Web & App Development",
-                description: "Scalable, secure, and built for growth",
-                icon: <Zap className="w-10 h-10 text-[#CBF36E]" />,
-              },
+                title: "Custom Development",
+                description: "Tailored solutions that integrate seamlessly with your business processes and goals.",
+                features: ["Custom Integrations", "Scalable Architecture", "Ongoing Support"],
+                image: "/placeholder.svg?height=300&width=400"
+              }
             ].map((service, i) => (
-              <div
-                key={i}
-                className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200 hover:border-[#CBF36E] hover:shadow-xl transition-all group"
-              >
-                <div className="flex items-start">
-                  <div className="mr-6">{service.icon}</div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-[#CBF36E] transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-700">{service.description}</p>
+              <div key={i} className="group">
+                <div className="bg-white rounded-3xl p-8 shadow-soft hover:shadow-medium transition-all duration-300 group-hover:-translate-y-1">
+                  <div className="flex flex-col lg:flex-row gap-6">
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-neutral-900 mb-3">{service.title}</h3>
+                      <p className="text-neutral-600 mb-6 leading-relaxed">{service.description}</p>
+                      <ul className="space-y-2 mb-6">
+                        {service.features.map((feature, j) => (
+                          <li key={j} className="flex items-center gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-primary" />
+                            <span className="text-neutral-700">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Button variant="outline" className="group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        Learn More
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </Button>
+                    </div>
+                    <div className="lg:w-64">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        width={300}
+                        height={200}
+                        className="rounded-2xl"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <div className="space-x-4">
-              <Button
-                className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg"
-                onClick={() => window.openLeadForm()}
-              >
-                Need a Custom Solution? Let's Talk
-              </Button>
-              <Button
-                className="bg-white hover:bg-gray-100 text-black text-lg px-8 py-6 rounded-full border-2 border-[#CBF36E]"
-                onClick={chatWithAgent}
-              >
-                Chat with an Agent
-              </Button>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Why LDG? (Trust Builders) */}
-      <section id="why-ldg" className="py-20 bg-gray-50 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Why Work With <span className="text-[#CBF36E]">LDG?</span>
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Proven Results",
-                description: "3X more leads, 2X faster conversions, and 50% lower ad costs",
-                icon: <BarChart className="w-12 h-12 text-[#CBF36E]" />,
-              },
-              {
-                title: "AI & Data-Driven Strategy",
-                description: "We don't guess. Every decision is backed by analytics.",
-                icon: <Bot className="w-12 h-12 text-[#CBF36E]" />,
-              },
-              {
-                title: "Custom-Tailored Solutions",
-                description: "Your business isn't cookie-cutter. Neither are we.",
-                icon: <Zap className="w-12 h-12 text-[#CBF36E]" />,
-              },
-              {
-                title: "100+ Successful Projects Delivered",
-                description: "Join the growing list of SMBs thriving with LDG.",
-                icon: <Shield className="w-12 h-12 text-[#CBF36E]" />,
-              },
-            ].map((item, i) => (
-              <div key={i} className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
-                <div className="flex items-start">
-                  <div className="mr-6">{item.icon}</div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-gray-700">{item.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+      {/* Social Proof */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-display font-bold text-neutral-900 mb-4">
+              Trusted by Growing Businesses
+            </h2>
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+              See how businesses like yours are achieving remarkable growth with our AI solutions.
+            </p>
           </div>
-
-          <div className="text-center mt-12">
-            <div className="space-x-4">
-              <Button
-                className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg"
-                onClick={() => window.openLeadForm()}
-              >
-                Let's Build Your Growth Plan – Book a Call
-              </Button>
-              <Button
-                className="bg-white hover:bg-gray-100 text-black text-lg px-8 py-6 rounded-full border-2 border-[#CBF36E]"
-                onClick={chatWithAgent}
-              >
-                Chat with an Agent
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How We Work (3-Step Process) */}
-      <section id="process" className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            How We <span className="text-[#CBF36E]">Work</span>
-          </h2>
-          <p className="text-center text-lg mb-16 max-w-3xl mx-auto">
-            Simple, frictionless 3-step process to get you results fast.
-          </p>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                step: "Step 1",
-                title: "Book a Free Strategy Call",
-                description: "We analyze your needs and current digital presence.",
+                quote: "LDG transformed our lead generation. We went from 10 to 150+ qualified leads per month.",
+                author: "Sarah Johnson",
+                position: "CEO, TechStart Solutions",
+                metric: "15X lead increase",
+                image: "/placeholder.svg?height=80&width=80"
               },
               {
-                step: "Step 2",
-                title: "Get a Custom AI Strategy",
-                description: "Tailored to your specific business goals and challenges.",
+                quote: "The AI chatbot handles 80% of our customer inquiries, freeing our team for strategic work.",
+                author: "Michael Chen",
+                position: "Founder, GrowthCorp",
+                metric: "80% automation",
+                image: "/placeholder.svg?height=80&width=80"
               },
               {
-                step: "Step 3",
-                title: "Launch & Scale",
-                description: "AI-powered growth, higher conversions, better ROI.",
-              },
-            ].map((process, i) => (
-              <div key={i} className="relative">
-                <div className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200 h-full">
-                  <div className="absolute -top-5 left-8 bg-[#CBF36E] text-black font-bold px-4 py-2 rounded-full">
-                    {process.step}
-                  </div>
-                  <h3 className="text-xl font-bold mt-6 mb-4">{process.title}</h3>
-                  <p className="text-gray-700">{process.description}</p>
-                </div>
-                {i < 2 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="text-[#CBF36E] w-8 h-8" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <div className="space-x-4">
-              <Button
-                className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg"
-                onClick={() => window.openLeadForm()}
-              >
-                Start Now – Free Consultation
-              </Button>
-              <Button
-                className="bg-white hover:bg-gray-100 text-black text-lg px-8 py-6 rounded-full border-2 border-[#CBF36E]"
-                onClick={chatWithAgent}
-              >
-                Chat with an Agent
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials & Results */}
-      <section id="testimonials" className="py-20 bg-gray-50 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Real <span className="text-[#CBF36E]">Results</span> for Real Businesses
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "We tripled our lead flow in 60 days thanks to LDG's AI-powered funnel!",
-                author: "John D.",
-                position: "Small Business Owner",
-                image: "/placeholder.svg?height=80&width=80",
-              },
-              {
-                quote: "AI chatbots cut our response time by 80%, and sales jumped 3X!",
-                author: "Sarah T.",
-                position: "E-Commerce CEO",
-                image: "/placeholder.svg?height=80&width=80",
-              },
-              {
-                quote: "We ranked #1 on Google in just 3 months thanks to LDG's SEO strategy!",
-                author: "Mike R.",
-                position: "SaaS Founder",
-                image: "/placeholder.svg?height=80&width=80",
-              },
+                quote: "Our website conversion rate doubled in just 60 days with LDG's optimization strategies.",
+                author: "Lisa Rodriguez",
+                position: "Marketing Director, ScaleUp Inc",
+                metric: "2X conversion rate",
+                image: "/placeholder.svg?height=80&width=80"
+              }
             ].map((testimonial, i) => (
-              <div key={i} className="backdrop-blur-md bg-white/70 rounded-xl p-8 shadow-lg border border-gray-200">
+              <div key={i} className="glass-effect rounded-3xl p-8">
                 <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="text-[#CBF36E] fill-[#CBF36E]" />
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-lg mb-6 italic">"{testimonial.quote}"</p>
-                <div className="flex items-center">
+                <div className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full inline-block mb-4">
+                  {testimonial.metric}
+                </div>
+                <p className="text-neutral-700 mb-6 leading-relaxed italic">"{testimonial.quote}"</p>
+                <div className="flex items-center gap-4">
                   <Image
-                    src={testimonial.image || "/placeholder.svg"}
+                    src={testimonial.image}
                     alt={testimonial.author}
                     width={48}
                     height={48}
-                    className="rounded-full mr-4"
+                    className="rounded-full"
                   />
                   <div>
-                    <p className="font-bold">{testimonial.author}</p>
-                    <p className="text-sm text-gray-600">{testimonial.position}</p>
+                    <p className="font-semibold text-neutral-900">{testimonial.author}</p>
+                    <p className="text-sm text-neutral-600">{testimonial.position}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="text-center mt-12">
-            <div className="space-x-4">
-              <Button
-                className="bg-[#CBF36E] hover:bg-[#b9e050] text-black px-8 py-6 rounded-full text-lg"
+      {/* CTA Section */}
+      <section className="section-padding bg-gradient-to-r from-primary to-primary-dark text-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-display font-bold mb-6">
+              Ready to Transform Your Business with AI?
+            </h2>
+            <p className="text-xl mb-8 opacity-90 leading-relaxed">
+              Join 100+ businesses already scaling faster with our AI-powered growth solutions. 
+              Get your free strategy session today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-white text-primary hover:bg-neutral-100 px-8 py-4 rounded-2xl text-lg font-semibold shadow-medium"
                 onClick={() => window.openLeadForm()}
               >
-                Get Similar Results – Book a Call
+                Get Your Free Strategy Session
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button
-                className="bg-white hover:bg-gray-100 text-black text-lg px-8 py-6 rounded-full border-2 border-[#CBF36E]"
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-2xl text-lg font-semibold"
                 onClick={chatWithAgent}
               >
-                Chat with an Agent
+                <Play className="mr-2 w-5 h-5" />
+                Chat with an Expert
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section id="contact" className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="backdrop-blur-md bg-white/70 rounded-2xl p-8 md:p-12 shadow-xl border border-gray-200 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-              Ready to <span className="text-[#CBF36E]">Scale Faster?</span> Let's Talk.
-            </h2>
-            <p className="text-center text-lg mb-8">Get a FREE AI-Powered Growth Strategy Call (Limited Spots)</p>
-
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block mb-2 font-medium">
-                    Full Name
-                  </label>
-                  <Input id="name" placeholder="John Smith" className="bg-white" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block mb-2 font-medium">
-                    Email Address
-                  </label>
-                  <Input id="email" type="email" placeholder="john@yourcompany.com" className="bg-white" />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="business-type" className="block mb-2 font-medium">
-                  Business Type
-                </label>
-                <Select>
-                  <SelectTrigger className="bg-white">
-                    <SelectValue placeholder="Select your business type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="ecommerce">E-Commerce</SelectItem>
-                    <SelectItem value="service">Service Business</SelectItem>
-                    <SelectItem value="saas">SaaS / Software</SelectItem>
-                    <SelectItem value="local">Local Business</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div>
-                <label htmlFor="challenge" className="block mb-2 font-medium">
-                  What's Your Biggest Growth Challenge?
-                </label>
-                <Textarea
-                  id="challenge"
-                  placeholder="Tell us what's holding your business back..."
-                  className="bg-white"
-                  rows={4}
-                />
-              </div>
-
-              <div className="space-x-4">
-                <Button
-                  className="w-full bg-[#CBF36E] hover:bg-[#b9e050] text-black text-lg py-6"
-                  onClick={() => window.openLeadForm()}
-                >
-                  Submit & Schedule Call
-                </Button>
-                <Button
-                  className="bg-white hover:bg-gray-100 text-black text-lg px-8 py-6 rounded-full border-2 border-[#CBF36E]"
-                  onClick={chatWithAgent}
-                >
-                  Chat with an Agent
-                </Button>
-              </div>
-
-              <p className="text-center text-sm">🎯 100% Free Strategy Call. No Strings Attached.</p>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Case Studies */}
-      <section className="py-20 bg-gray-50 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            Featured <span className="text-[#CBF36E]">Case Studies</span>
-          </h2>
-          <p className="text-center text-lg mb-16 max-w-3xl mx-auto">
-            See how we've helped businesses like yours achieve remarkable growth.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "E-Commerce Revenue Growth",
-                description:
-                  "How we helped an online store increase sales by 215% in 90 days with AI-powered recommendations.",
-                image: "/placeholder.svg?height=300&width=400",
-                result: "+215% Revenue",
-              },
-              {
-                title: "Lead Generation Success",
-                description:
-                  "A service business that went from 10 to 50+ qualified leads per month with our conversion strategy.",
-                image: "/placeholder.svg?height=300&width=400",
-                result: "5X More Leads",
-              },
-              {
-                title: "SEO Ranking Breakthrough",
-                description:
-                  "How we got a local business to rank #1 for their most valuable keywords in a competitive market.",
-                image: "/placeholder.svg?height=300&width=400",
-                result: "#1 Google Ranking",
-              },
-            ].map((study, i) => (
-              <div
-                key={i}
-                className="backdrop-blur-md bg-white/70 rounded-xl overflow-hidden shadow-lg border border-gray-200 group hover:shadow-xl transition-shadow"
-              >
-                <div className="relative">
-                  <Image
-                    src={study.image || "/placeholder.svg"}
-                    alt={study.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute top-4 right-4 bg-[#CBF36E] text-black font-bold px-4 py-2 rounded-full text-sm">
-                    {study.result}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-[#CBF36E] transition-colors">{study.title}</h3>
-                  <p className="text-gray-700 mb-4">{study.description}</p>
-                  <Button variant="outline" className="border-[#CBF36E] text-black hover:bg-[#CBF36E] hover:text-black">
-                    Read Case Study
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 px-4 bg-black text-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { number: "100+", label: "SMBs Served" },
-              { number: "3X", label: "Average Lead Increase" },
-              { number: "50%", label: "Lower Ad Costs" },
-              { number: "24/7", label: "AI Support" },
-            ].map((stat, i) => (
-              <div key={i} className="backdrop-blur-md bg-white/10 rounded-xl p-6 border border-gray-800">
-                <div className="text-4xl md:text-5xl font-bold text-[#CBF36E] mb-2">{stat.number}</div>
-                <div className="text-gray-300">{stat.label}</div>
-              </div>
-            ))}
+            <p className="text-sm mt-6 opacity-75">
+              ✓ Free consultation ✓ No commitment ✓ Custom strategy included
+            </p>
           </div>
         </div>
       </section>
@@ -591,4 +342,3 @@ export default function Home() {
     </div>
   )
 }
-
