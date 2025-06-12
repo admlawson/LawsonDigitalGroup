@@ -31,25 +31,25 @@ const Navigation = () => {
                   href="/services/ai-powered-websites"
                   className="block px-4 py-3 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-primary rounded-xl transition-colors"
                 >
-                  AI-Powered Websites
+                  Smart Business Websites
                 </Link>
                 <Link
                   href="/services/ai-chatbots"
                   className="block px-4 py-3 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-primary rounded-xl transition-colors"
                 >
-                  AI Chatbots & Automation
+                  Automation & Lead Follow-Up
                 </Link>
                 <Link
                   href="/services/seo-marketing"
                   className="block px-4 py-3 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-primary rounded-xl transition-colors"
                 >
-                  SEO & Marketing
+                  Get Found & Grow
                 </Link>
                 <Link
                   href="/services/custom-development"
                   className="block px-4 py-3 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-primary rounded-xl transition-colors"
                 >
-                  Custom Development
+                  Custom Apps & Tools
                 </Link>
               </div>
             </div>
