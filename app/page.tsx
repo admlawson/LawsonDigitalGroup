@@ -269,7 +269,9 @@ export default function Home() {
                             </li>
                           ))}
                         </ul>
-                        <Button variant="outline" className="group-hover:bg-primary group-hover:text-white transition-all duration-300 w-full sm:w-auto">
+                        <Button 
+                          className="bg-primary/10 text-primary border-2 border-primary/20 hover:bg-primary hover:text-white hover:border-primary font-semibold transition-all duration-300 w-full sm:w-auto shadow-soft"
+                        >
                           Learn More
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
