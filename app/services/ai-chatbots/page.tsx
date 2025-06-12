@@ -37,17 +37,17 @@ export default function AIChatbots() {
             </div>
             
             <div className="grid sm:grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
-              <div className="flex items-center justify-center gap-2 bg-white/80 backdrop-blur-sm p-3 rounded-xl shadow-soft">
+              <div className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-soft border border-primary/10">
                 <CheckCircle2 className="w-5 h-5 text-primary" />
-                <span className="font-medium">3X more leads</span>
+                <span className="font-medium text-neutral-800">3X more leads</span>
               </div>
-              <div className="flex items-center justify-center gap-2 bg-white/80 backdrop-blur-sm p-3 rounded-xl shadow-soft">
+              <div className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-soft border border-primary/10">
                 <CheckCircle2 className="w-5 h-5 text-primary" />
-                <span className="font-medium">80% faster response</span>
+                <span className="font-medium text-neutral-800">80% faster response</span>
               </div>
-              <div className="flex items-center justify-center gap-2 bg-white/80 backdrop-blur-sm p-3 rounded-xl shadow-soft">
+              <div className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-soft border border-primary/10">
                 <CheckCircle2 className="w-5 h-5 text-primary" />
-                <span className="font-medium">No missed messages</span>
+                <span className="font-medium text-neutral-800">No missed messages</span>
               </div>
             </div>
             
@@ -127,7 +127,7 @@ export default function AIChatbots() {
             What Our <span className="text-gradient">Chatbots Can Do</span>
           </h2>
           
-          <div class="text-center mb-16">
+          <div className="text-center mb-16">
             <p className="text-lg text-neutral-600 italic">💬 "Think of it as a front desk that never clocks out."</p>
           </div>
 
@@ -190,10 +190,10 @@ export default function AIChatbots() {
 
           <div className="text-center mt-12">
             <div className="inline-flex flex-col sm:flex-row gap-4 items-center">
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl shadow-soft">
+              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-soft border border-primary/10">
                 <span className="text-primary font-bold">📦 Chatbot setups start at $1,995</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl shadow-soft">
+              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-soft border border-accent/10">
                 <span className="text-accent font-bold">🛠️ Custom options available</span>
               </div>
             </div>
