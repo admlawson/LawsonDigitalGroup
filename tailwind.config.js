@@ -24,16 +24,29 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#8FD14F", // Refined green - more professional
-          light: "#B8E179",
-          dark: "#6AB82F",
-          foreground: "#000000",
+          DEFAULT: "#00B4D8", // Toyota TRD Wave Blue - Striking cyan-blue
+          light: "#90E0EF",   // Icy, glacial light blue
+          dark: "#0077B6",    // Deep cosmic blue
+          foreground: "#FFFFFF",
         },
         accent: {
-          DEFAULT: "#3B82F6", // Professional blue
-          light: "#60A5FA",
-          dark: "#1E40AF",
+          DEFAULT: "#0096C7", // Complementary deep blue
+          light: "#48CAE4",   // Bright turquoise tone
+          dark: "#023E8A",    // Navy cosmic depth
           foreground: "#FFFFFF",
+        },
+        wave: {
+          // Additional Wave Blue variations
+          50: "#F0FDFF",      // Lightest ice
+          100: "#E6FAFE",     // Ice blue
+          200: "#BAF1FD",     // Light wave
+          300: "#7CE5FC",     // Miami blue light
+          400: "#36D1FA",     // Bright turquoise
+          500: "#00B4D8",     // Primary Wave Blue
+          600: "#0096C7",     // Deeper wave
+          700: "#0077B6",     // Ocean depth
+          800: "#03045E",     // Deep cosmic
+          900: "#023E8A",     // Darkest depth
         },
         neutral: {
           50: "#F8FAFC",
@@ -89,9 +102,15 @@ module.exports = {
         '3xl': '1.5rem',
       },
       boxShadow: {
-        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
-        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 30px -5px rgba(0, 0, 0, 0.04)',
-        'strong': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 15px 25px -5px rgba(0, 0, 0, 0.1)',
+        'soft': '0 2px 15px -3px rgba(0, 180, 216, 0.07), 0 10px 20px -2px rgba(0, 180, 216, 0.04)',
+        'medium': '0 4px 25px -5px rgba(0, 180, 216, 0.1), 0 10px 30px -5px rgba(0, 180, 216, 0.04)',
+        'strong': '0 10px 40px -10px rgba(0, 180, 216, 0.15), 0 15px 25px -5px rgba(0, 180, 216, 0.1)',
+        'wave': '0 4px 20px -2px rgba(0, 180, 216, 0.25), 0 8px 25px -5px rgba(72, 202, 228, 0.15)',
+      },
+      backgroundImage: {
+        'wave-gradient': 'linear-gradient(135deg, #00B4D8 0%, #0096C7 25%, #0077B6 50%, #023E8A 100%)',
+        'ice-gradient': 'linear-gradient(135deg, #F0FDFF 0%, #E6FAFE 25%, #BAF1FD 50%, #90E0EF 100%)',
+        'cosmic-gradient': 'linear-gradient(135deg, #023E8A 0%, #03045E 50%, #0F172A 100%)',
       },
       keyframes: {
         "accordion-down": {
@@ -110,12 +129,17 @@ module.exports = {
           from: { opacity: 0 },
           to: { opacity: 1 },
         },
+        "wave-shimmer": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.6s ease-out",
         "fade-in": "fade-in 0.4s ease-out",
+        "wave-shimmer": "wave-shimmer 2s ease-in-out infinite",
       },
     },
   },
