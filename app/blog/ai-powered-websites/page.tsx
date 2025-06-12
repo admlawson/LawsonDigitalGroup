@@ -15,7 +15,7 @@ export default function AIPoweredWebsites() {
             AI-Powered Websites: How SMBs Are Turning Their Sites into Lead-Generating Machines
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            Most small business websites fail to generate leads—here's how AI is changing that.
+            Most small business websites fail to generate leads;here's how AI is changing that.
           </p>
 
           <Image
