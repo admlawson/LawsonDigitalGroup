@@ -4,7 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import Script from "next/script"
 import { LeadFormProvider } from "@/contexts/LeadFormContext"
-import LeadCaptureForm from "@/components/LeadCaptureForm"
+import Web3ContactForm from "@/components/Web3ContactForm"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -25,15 +25,24 @@ export default function RootLayout({
       <body className={inter.className}>
         <LeadFormProvider>
           {children}
-          <LeadCaptureForm />
+          <Web3ContactForm />
         </LeadFormProvider>
         <Script src="https://unpkg.com/@play-ai/agent-web-sdk" strategy="afterInteractive" />
         <Script id="setup-lead-form-and-agent" strategy="afterInteractive">
           {`
-            window.openLeadForm = () => {
-              const event = new Event('openLeadForm');
-              window.dispatchEvent(event);
+            window.openLeadForm = (type = 'strategy', title, subtitle) => {
+              if (typeof type === 'object') {
+                // Handle legacy calls where first param might be an event
+                const event = new Event('openLeadForm');
+                window.dispatchEvent(event);
+              } else {
+                const event = new CustomEvent('openLeadFormWithOptions', {
+                  detail: { type, title, subtitle }
+                });
+                window.dispatchEvent(event);
+              }
             };
+            
             window.chatWithAgent = () => {
               const event = new Event('chatWithAgent');
               window.dispatchEvent(event);
@@ -44,7 +53,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-import './globals.css'
