@@ -1,183 +1,159 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, ArrowRight, Home, Briefcase, DollarSign, FileText, Users, Info } from "lucide-react"
-import { useLeadForm } from "@/contexts/LeadFormContext"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import {
+  Menu as MenuIcon,
+  X,
+  ChevronDown,
+  ArrowRight,
+  Home,
+  Briefcase,
+  DollarSign,
+  FileText,
+  Users,
+  Info,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLeadForm } from "@/contexts/LeadFormContext";
 
-const MobileMenu = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
-  const { openLeadForm } = useLeadForm()
+export default function MobileMenu() {
+  const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const { openLeadForm } = useLeadForm();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-    setIsServicesOpen(false)
-  }
+  /* --- lock body scroll when drawer is open --- */
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+  }, [open]);
 
-  const closeMenu = () => {
-    setIsOpen(false)
-    setIsServicesOpen(false)
-  }
-
-  const toggleServices = () => {
-    setIsServicesOpen(!isServicesOpen)
-  }
-
-  const mainNavItems = [
+  const nav = [
     { href: "/", label: "Home", icon: Home },
     { href: "/pricing", label: "Pricing", icon: DollarSign },
     { href: "/case-studies", label: "Case Studies", icon: FileText },
     { href: "/blog", label: "Resources", icon: Users },
     { href: "/about", label: "About", icon: Info },
-  ]
+  ];
 
-  const serviceItems = [
+  const services = [
     { href: "/services/ai-powered-websites", label: "Smart Business Websites" },
     { href: "/services/ai-chatbots", label: "Automation & Lead Follow-Up" },
     { href: "/services/seo-marketing", label: "Get Found & Grow" },
     { href: "/services/custom-development", label: "Custom Apps & Tools" },
-    { href: "/services/digital-setup-tech-support", label: "Digital Setup & Tech Support" },
-  ]
+    { href: "/services/digital-setup-tech-support", label: "Digital Setup & Support" },
+  ];
 
   return (
-    <div className="md:hidden">
-      {/* Hamburger Button */}
-      <Button 
-        variant="ghost" 
+    <>
+      {/* --- trigger --- */}
+      <Button
+        variant="ghost"
         size="icon"
-        onClick={toggleMenu}
-        className="relative z-50 text-neutral-700 hover:text-primary hover:bg-primary/10 transition-all duration-200"
-        aria-label={isOpen ? "Close menu" : "Open menu"}
+        aria-label="Toggle menu"
+        onClick={() => setOpen(!open)}
+        className="md:hidden text-neutral-700 hover:text-primary"
       >
-        <div className="relative w-6 h-6">
-          <span className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ${isOpen ? 'rotate-45 top-3' : 'top-1'}`} />
-          <span className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 top-3 ${isOpen ? 'opacity-0' : 'opacity-100'}`} />
-          <span className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ${isOpen ? '-rotate-45 top-3' : 'top-5'}`} />
-        </div>
+        {open ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
       </Button>
 
-      {/* Backdrop Overlay */}
-      {isOpen && (
-        <div 
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
-          onClick={closeMenu}
+      {/* --- backdrop --- */}
+      {open && (
+        <div
+          aria-hidden
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+          onClick={() => setOpen(false)}
         />
       )}
 
-      {/* Slide-out Menu Panel */}
-      <div className={`
-        fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50
-        transform transition-transform duration-500 ease-out
-        ${isOpen ? 'translate-x-0' : 'translate-x-full'}
-      `}>
-        {/* Menu Header */}
-        <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-6 border-b border-neutral-100">
-          <div className="flex items-center justify-between">
-            <div className="font-bold text-xl text-neutral-900">
-              <span className="text-neutral-900">Lawson</span>
-              <span className="text-primary">Digital</span>
-            </div>
-            <Button 
-              variant="ghost" 
-              size="icon"
-              onClick={closeMenu}
-              className="text-neutral-500 hover:text-neutral-700 hover:bg-white/50 rounded-full transition-all duration-200"
-            >
-              <X className="h-5 w-5" />
-            </Button>
-          </div>
-          <p className="text-sm text-neutral-600 mt-2">Smart solutions for growing businesses</p>
+      {/* --- drawer --- */}
+      <aside
+        className={`fixed inset-y-0 right-0 z-50 w-screen max-w-sm bg-white
+        transform transition-transform duration-300 ease-out
+        ${open ? "translate-x-0" : "translate-x-full"}`}
+      >
+        {/* header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b">
+          <span className="font-extrabold text-xl">
+            Lawson<span className="text-primary">Digital</span>
+          </span>
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+            className="text-neutral-600 hover:text-primary"
+          >
+            <X className="w-5 h-5" />
+          </Button>
         </div>
 
-        {/* Navigation Content */}
-        <div className="flex flex-col h-full overflow-y-auto">
-          
-          {/* Main Navigation Items */}
-          <div className="flex-1 py-6">
-            <div className="px-6 space-y-2">
-              {mainNavItems.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={closeMenu}
-                    className="flex items-center gap-3 px-4 py-4 rounded-xl text-neutral-700 hover:text-primary hover:bg-primary/5 transition-all duration-200 group border border-transparent hover:border-primary/10"
-                  >
-                    <Icon className="w-5 h-5 text-neutral-400 group-hover:text-primary transition-colors duration-200" />
-                    <span className="font-medium text-lg">{item.label}</span>
-                    <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                  </Link>
-                )
-              })}
-            </div>
+        {/* scrollable content */}
+        <nav className="flex flex-col gap-2 px-4 py-6 overflow-y-auto max-h-[calc(100dvh-220px)]">
+          {nav.map(({ href, label, icon: Icon }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 rounded-xl px-4 py-3
+                         text-lg font-medium text-neutral-700
+                         hover:bg-primary/10 hover:text-primary"
+            >
+              <Icon className="w-5 h-5 opacity-60 shrink-0" />
+              {label}
+              <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100" />
+            </Link>
+          ))}
 
-            {/* Services Section */}
-            <div className="px-6 mt-8">
-              <div className="border-t border-neutral-200 pt-6">
-                <button
-                  onClick={toggleServices}
-                  className="flex items-center gap-3 px-4 py-4 rounded-xl text-neutral-700 hover:text-primary hover:bg-primary/5 transition-all duration-200 group w-full border border-transparent hover:border-primary/10"
+          {/* services accordion */}
+          <button
+            onClick={() => setServicesOpen(!servicesOpen)}
+            className="flex items-center gap-3 rounded-xl px-4 py-3
+                       text-lg font-medium text-neutral-700
+                       hover:bg-primary/10 hover:text-primary"
+          >
+            <Briefcase className="w-5 h-5 opacity-60 shrink-0" />
+            Services
+            <ChevronDown
+              className={`w-4 h-4 ml-auto transition-transform ${
+                servicesOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+
+          {servicesOpen && (
+            <div className="pl-8 flex flex-col gap-1">
+              {services.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-lg px-4 py-2 text-sm text-neutral-600
+                             hover:bg-primary/10 hover:text-primary"
                 >
-                  <Briefcase className="w-5 h-5 text-neutral-400 group-hover:text-primary transition-colors duration-200" />
-                  <span className="font-medium text-lg">Services</span>
-                  <ChevronDown className={`w-4 h-4 ml-auto transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                </button>
-
-                {/* Services Submenu */}
-                <div className={`overflow-hidden transition-all duration-300 ${isServicesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="mt-3 ml-6 space-y-1">
-                    {serviceItems.map((service, index) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        onClick={closeMenu}
-                        className="block px-4 py-3 text-neutral-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 text-sm border-l-2 border-transparent hover:border-primary/30"
-                      >
-                        {service.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                  {label}
+                </Link>
+              ))}
             </div>
-          </div>
+          )}
+        </nav>
 
-          {/* Call to Action */}
-          <div className="px-6 py-6 border-t border-neutral-200 bg-gradient-to-r from-neutral-50 to-primary/5 mt-auto">
-            <div className="text-center mb-4">
-              <h3 className="font-bold text-neutral-900 mb-1">Ready to grow?</h3>
-              <p className="text-sm text-neutral-600">Get your free strategy call today</p>
-            </div>
-            
-            <Button 
-              onClick={() => {
-                closeMenu()
-                openLeadForm()
-              }}
-              className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-200"
-            >
-              Get Started Free
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-
-            <div className="flex items-center justify-center gap-4 mt-4 text-xs text-neutral-500">
-              <span className="flex items-center gap-1">
-                <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                No commitment
-              </span>
-              <span className="flex items-center gap-1">
-                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                Free consultation
-              </span>
-            </div>
-          </div>
+        {/* sticky CTA */}
+        <div className="sticky inset-x-0 bottom-0 mt-auto px-6 py-5 border-t bg-gradient-to-r from-neutral-50 to-primary/5">
+          <Button
+            className="w-full py-4 bg-primary text-white hover:bg-primary-dark"
+            onClick={() => {
+              setOpen(false);
+              openLeadForm();
+            }}
+          >
+            Get Started Free
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+          <p className="mt-2 text-center text-xs text-neutral-500">
+            ✨ Free strategy call  •  No commitment
+          </p>
         </div>
-      </div>
-    </div>
-  )
+      </aside>
+    </>
+  );
 }
-
-export default MobileMenu
