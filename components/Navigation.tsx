@@ -12,11 +12,11 @@ const Navigation = () => {
   const { openLeadForm } = useLeadForm()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-white/20 shadow-soft">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-soft">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="font-heading font-bold text-2xl">
           <span className="text-neutral-900">Lawson</span>
-          <span className="text-gradient">Digital</span>
+          <span className="text-primary">Digital</span>
           <span className="text-neutral-900">Group</span>
         </Link>
         
@@ -90,3 +90,4 @@ const Navigation = () => {
 }
 
 export default Navigation
+</action>
