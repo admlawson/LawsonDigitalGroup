@@ -32,7 +32,7 @@ const MobileMenu = () => {
         variant="ghost" 
         size="icon"
         onClick={toggleMenu}
-        className="relative z-50 text-neutral-700 hover:text-primary hover:bg-primary/10 p-2"
+        className="relative z-50 text-neutral-900 hover:text-primary hover:bg-primary/10 p-2 h-10 w-10"
         aria-label={isOpen ? "Close menu" : "Open menu"}
       >
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -40,7 +40,10 @@ const MobileMenu = () => {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm" onClick={closeMenu} />
+        <div 
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm" 
+          onClick={closeMenu} 
+        />
       )}
 
       {/* Mobile Menu Panel */}
@@ -50,8 +53,8 @@ const MobileMenu = () => {
       `}>
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-neutral-200">
-            <div className="font-heading font-bold text-xl">
+          <div className="flex items-center justify-between p-6 border-b border-neutral-200 bg-white">
+            <div className="font-heading font-bold text-xl text-neutral-900">
               <span className="text-neutral-900">Lawson</span>
               <span className="text-primary">Digital</span>
               <span className="text-neutral-900">Group</span>
@@ -60,66 +63,66 @@ const MobileMenu = () => {
               variant="ghost" 
               size="icon"
               onClick={closeMenu}
-              className="text-neutral-500 hover:text-neutral-700 hover:bg-neutral-100 rounded-full"
+              className="text-neutral-500 hover:text-neutral-700 hover:bg-neutral-100 rounded-full h-8 w-8"
             >
               <X className="h-5 w-5" />
             </Button>
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex-1 overflow-y-auto py-6">
-            <div className="space-y-2 px-6">
+          <nav className="flex-1 overflow-y-auto py-6 bg-white">
+            <div className="space-y-1 px-6">
               <Link 
                 href="/" 
-                className="block py-3 text-lg font-medium text-neutral-700 hover:text-primary transition-colors"
+                className="block py-3 text-lg font-medium text-neutral-900 hover:text-primary transition-colors border-b border-transparent hover:border-primary/20"
                 onClick={closeMenu}
               >
                 Home
               </Link>
 
               {/* Services Dropdown */}
-              <div>
+              <div className="border-b border-neutral-100 pb-2">
                 <button
                   onClick={toggleServices}
-                  className="flex items-center justify-between w-full py-3 text-lg font-medium text-neutral-700 hover:text-primary transition-colors"
+                  className="flex items-center justify-between w-full py-3 text-lg font-medium text-neutral-900 hover:text-primary transition-colors"
                 >
                   Services
                   <ChevronDown className={`h-4 w-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
                 {isServicesOpen && (
-                  <div className="pl-4 space-y-2 border-l-2 border-primary/20 ml-2">
+                  <div className="pl-4 space-y-2 mt-2 border-l-2 border-primary/20 ml-2">
                     <Link
                       href="/services/ai-powered-websites"
-                      className="block py-2 text-neutral-600 hover:text-primary transition-colors"
+                      className="block py-2 text-base text-neutral-700 hover:text-primary transition-colors"
                       onClick={closeMenu}
                     >
                       Smart Business Websites
                     </Link>
                     <Link
                       href="/services/ai-chatbots"
-                      className="block py-2 text-neutral-600 hover:text-primary transition-colors"
+                      className="block py-2 text-base text-neutral-700 hover:text-primary transition-colors"
                       onClick={closeMenu}
                     >
                       Automation & Lead Follow-Up
                     </Link>
                     <Link
                       href="/services/seo-marketing"
-                      className="block py-2 text-neutral-600 hover:text-primary transition-colors"
+                      className="block py-2 text-base text-neutral-700 hover:text-primary transition-colors"
                       onClick={closeMenu}
                     >
                       Get Found & Grow
                     </Link>
                     <Link
                       href="/services/custom-development"
-                      className="block py-2 text-neutral-600 hover:text-primary transition-colors"
+                      className="block py-2 text-base text-neutral-700 hover:text-primary transition-colors"
                       onClick={closeMenu}
                     >
                       Custom Apps & Tools
                     </Link>
                     <Link
                       href="/services/digital-setup-tech-support"
-                      className="block py-2 text-neutral-600 hover:text-primary transition-colors"
+                      className="block py-2 text-base text-neutral-700 hover:text-primary transition-colors"
                       onClick={closeMenu}
                     >
                       Digital Setup & Tech Support
@@ -130,7 +133,7 @@ const MobileMenu = () => {
 
               <Link 
                 href="/pricing" 
-                className="block py-3 text-lg font-medium text-neutral-700 hover:text-primary transition-colors"
+                className="block py-3 text-lg font-medium text-neutral-900 hover:text-primary transition-colors border-b border-transparent hover:border-primary/20"
                 onClick={closeMenu}
               >
                 Pricing
@@ -138,7 +141,7 @@ const MobileMenu = () => {
               
               <Link 
                 href="/case-studies" 
-                className="block py-3 text-lg font-medium text-neutral-700 hover:text-primary transition-colors"
+                className="block py-3 text-lg font-medium text-neutral-900 hover:text-primary transition-colors border-b border-transparent hover:border-primary/20"
                 onClick={closeMenu}
               >
                 Case Studies
@@ -146,7 +149,7 @@ const MobileMenu = () => {
               
               <Link 
                 href="/blog" 
-                className="block py-3 text-lg font-medium text-neutral-700 hover:text-primary transition-colors"
+                className="block py-3 text-lg font-medium text-neutral-900 hover:text-primary transition-colors border-b border-transparent hover:border-primary/20"
                 onClick={closeMenu}
               >
                 Resources
@@ -154,7 +157,7 @@ const MobileMenu = () => {
               
               <Link 
                 href="/about" 
-                className="block py-3 text-lg font-medium text-neutral-700 hover:text-primary transition-colors"
+                className="block py-3 text-lg font-medium text-neutral-900 hover:text-primary transition-colors border-b border-transparent hover:border-primary/20"
                 onClick={closeMenu}
               >
                 About
